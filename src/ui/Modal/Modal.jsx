@@ -1,8 +1,9 @@
 import { HiXMark } from 'react-icons/hi2';
 import styles from './Modal.module.css';
+import { createPortal } from 'react-dom';
 
 function Modal({ children, onClose }) {
-  return (
+  return createPortal(
     <div className={styles.modalOverlay}>
       <div className={styles.modalParent}>
         <button className={styles.modalButton} onClick={onClose}>
@@ -10,7 +11,8 @@ function Modal({ children, onClose }) {
         </button>
         {children}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 
