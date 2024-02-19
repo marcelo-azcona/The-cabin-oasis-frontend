@@ -6,6 +6,7 @@ import { useCreateCabin } from './hooks/useCreateCabin';
 import ConfirmDelete from '../../ui/ConfirmDelete';
 import Modal from '../../ui/Modal/Modal';
 import styles from './Cabin.module.css';
+import Table from '../../ui/Table/Table';
 
 function CabinRow({ cabin }) {
   const { isDeleting, deleteCabin } = useDeleteCabin();
@@ -34,7 +35,9 @@ function CabinRow({ cabin }) {
 
   return (
     <>
-      <div className={styles.cabinRow} role="row">
+      {/* <div className={styles.cabinRow} role="row">
+       */}
+      <Table.Row>
         <img className={styles.cabinImg} src={image} alt="An img of a Cabin" />
         <div className={styles.cabin}>{name}</div>
         <div>Fits up to {maxCapacity} guests</div>
@@ -73,7 +76,7 @@ function CabinRow({ cabin }) {
             </Modal.Window>
           </Modal>
         </div>
-      </div>
+      </Table.Row>
     </>
   );
 }
