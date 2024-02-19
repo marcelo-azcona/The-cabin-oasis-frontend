@@ -41,7 +41,9 @@ function Row({ children }) {
   );
 }
 
-function Body({ children }) {}
+function Body({ children }) {
+  return <div className={styles.tableBody}>{children}</div>;
+}
 
 function Footer() {
   return <div className={styles.tableFooter} />;
