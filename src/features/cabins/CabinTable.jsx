@@ -3,11 +3,14 @@ import CabinRow from './CabinRow';
 import { useCabins } from './hooks/useCabins';
 import styles from './Cabin.module.css';
 import Table from '../../ui/Table/Table';
+import Empty from '../../ui/Empty';
 
 function CabinTable() {
   const { isLoading, cabins } = useCabins();
 
   if (isLoading) return <Spinner />;
+
+  if (!cabins) return <Empty resource="cabins" />;
 
   //   return (
   //     <div className={styles.cabinTable} role="table">
