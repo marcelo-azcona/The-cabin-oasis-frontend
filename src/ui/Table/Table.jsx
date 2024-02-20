@@ -5,7 +5,7 @@ const TableContext = createContext();
 
 function Table({ columns, children }) {
   return (
-    <TableContext.Provider value={columns}>
+    <TableContext.Provider value={{ columns }}>
       <div className={styles.tableContainer} role="table">
         {children}
       </div>
