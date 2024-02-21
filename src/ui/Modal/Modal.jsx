@@ -15,14 +15,11 @@ const ModalContext = createContext();
 function Modal({ children }) {
   const [openName, setOpenName] = useState('');
 
-  function close() {
-    setOpenName('');
-  }
-
+  const close = () => setOpenName('');
   const open = setOpenName;
 
   return (
-    <ModalContext.Provider value={(openName, close, open)}>
+    <ModalContext.Provider value={{ openName, close, open }}>
       {children}
     </ModalContext.Provider>
   );
@@ -48,7 +45,7 @@ function Window({ children, name }) {
         }
       }
 
-      document.addEventListener('click', handleClick);
+      document.addEventListener('click', handleClick, true);
 
       return () => document.removeEventListener('click', handleClick, true);
     },
