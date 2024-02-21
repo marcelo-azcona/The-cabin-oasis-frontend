@@ -36,6 +36,8 @@ function Open({ children, opens: openWindowName }) {
 
 function Window({ children, name }) {
   const { openName, close } = useContext(ModalContext);
+
+  // To close the menu is a click is registered outside
   const ref = useRef();
 
   useEffect(
