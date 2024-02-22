@@ -16,7 +16,9 @@ function Menus({ children }) {
   const open = setOpenId;
 
   return (
-    <MenusContext.Provider value={(openId, close, open, position, setPosition)}>
+    <MenusContext.Provider
+      value={{ openId, close, open, position, setPosition }}
+    >
       {children}
     </MenusContext.Provider>
   );
@@ -27,23 +29,22 @@ function Menu({ children }) {
 }
 
 function Toggle({ id }) {
-  const { openId, close, open, position, setPosition } =
-    useContext(MenusContext);
+  const { openId, close, open, setPosition } = useContext(MenusContext);
 
   function handleClick(e) {
-    const rectangle = e.target.closest('button').getBoundingClientRect();
+    const rect = e.target.closest('button').getBoundingClientRect();
     setPosition({
-      x: window.innerWidth - rectangle.width - rectangle.x,
-      y: rectangle.y + rectangle.height + 8,
+      x: window.innerWidth - rect.width - rect.x,
+      y: rect.y + rect.height + 8,
     });
 
     openId === '' || openId !== id ? open(id) : close();
   }
 
   return (
-    <div className={styles.menuToggle} onCLick={handleClick}>
+    <button className={styles.menuToggle} onClick={handleClick}>
       <HiEllipsisVertical />
-    </div>
+    </button>
   );
 }
 
@@ -61,7 +62,7 @@ function List({ id, children }) {
         }
       }
 
-      document.addEventListener('click', handleClick);
+      document.addEventListener('click', handleClick, true);
 
       return () => document.removeEventListener('click', handleClick, true);
     },
