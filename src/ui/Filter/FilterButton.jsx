@@ -1,9 +1,15 @@
 import styles from './Filter.module.css';
 
-function FilterButton({ children, onClick }) {
+function FilterButton({ children, active, onClick }) {
   return (
-    <div className={`${styles.filterButton}`} onClick={onClick}>
+    <div
+      className={`${styles.filterButton} ${
+        active && styles.filterButtonActive
+      }`}
+      onClick={onClick}
+    >
       {children}
+      {console.log(active)}
     </div>
   );
 }
