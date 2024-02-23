@@ -9,7 +9,6 @@ function FilterButton({ children, active, onClick }) {
       onClick={onClick}
     >
       {children}
-      {console.log(active)}
     </div>
   );
 }
