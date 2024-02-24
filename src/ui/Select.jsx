@@ -1,13 +1,19 @@
 import styles from './Select.module.css';
 
-function Select({ children, type }) {
+function Select({ options, value, type, onChange }) {
   return (
     <select
       className={`${styles.select} ${
         type === 'white' ? styles.selectBorderWhite : styles.selectBorderDefault
       }`}
+      value={value}
+      onChange={onChange}
     >
-      {children}
+      {options.map((option) => (
+        <option value={option.value} key={option.value}>
+          {option.label}
+        </option>
+      ))}
     </select>
   );
 }
