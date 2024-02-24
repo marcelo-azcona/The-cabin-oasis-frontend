@@ -1,11 +1,11 @@
+import { useSearchParams } from 'react-router-dom';
+import { useCabins } from './hooks/useCabins';
 import Spinner from '../../ui/Animation/Spinner';
 import CabinRow from './CabinRow';
-import { useCabins } from './hooks/useCabins';
-import styles from './Cabin.module.css';
 import Table from '../../ui/Table/Table';
 import Empty from '../../ui/Empty';
 import Menus from '../../ui/Menu/Menus';
-import { useSearchParams } from 'react-router-dom';
+import styles from './Cabin.module.css';
 
 function CabinTable() {
   const { isLoading, cabins } = useCabins();
@@ -15,21 +15,6 @@ function CabinTable() {
 
   if (!cabins) return <Empty resource="cabins" />;
 
-  //   return (
-  //     <div className={styles.cabinTable} role="table">
-  //       <header className={styles.cabinTableHeader} role="row">
-  //         <div></div>
-  //         <div>Cabin</div>
-  //         <div>Capacity</div>
-  //         <div>Price</div>
-  //         <div>Discount</div>
-  //       </header>
-  //       {cabins.map((cabin) => (
-  //         <CabinRow cabin={cabin} key={cabin.id} />
-  //       ))}
-  //     </div>
-  //   );
-  // }
   const filterValue = searchParams.get('discount') || 'all';
 
   let filteredCabins;
