@@ -1,19 +1,16 @@
-import styled from 'styled-components';
-import styles from './Booking.module.css';
 import { format } from 'date-fns';
-
-import { box } from 'styles/styles';
-import { formatDistanceFromNow } from 'utils/helpers';
 import { isToday } from 'date-fns/esm';
-import { formatCurrency } from 'utils/helpers';
+import { formatDistanceFromNow } from '../../utils/helpers';
+import { formatCurrency } from '../../utils/helpers';
 import {
   HiOutlineChatBubbleBottomCenterText,
   HiOutlineCheckCircle,
   HiOutlineCurrencyDollar,
   HiOutlineHomeModern,
 } from 'react-icons/hi2';
-import DataItem from 'ui/DataItem';
-import { Flag } from 'ui/Flag';
+import DataItem from '../../ui/DataItem';
+import { Flag } from '../../ui/Img/Flag';
+import styles from './Booking.module.css';
 
 function BookingDataBox({ booking }) {
   const {
