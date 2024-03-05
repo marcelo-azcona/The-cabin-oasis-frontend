@@ -5,7 +5,6 @@ import CabinRow from './CabinRow';
 import Table from '../../ui/Table/Table';
 import Empty from '../../ui/Empty';
 import Menus from '../../ui/Menu/Menus';
-import styles from './Cabin.module.css';
 
 function CabinTable() {
   const { isLoading, cabins } = useCabins();
