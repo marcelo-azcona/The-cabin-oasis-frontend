@@ -17,7 +17,7 @@ import { format, isToday } from 'date-fns';
 import { useDeleteBooking } from '../bookings/hooks/useDeleteBookings';
 import { formatCurrency } from '../../utils/helpers';
 import { formatDistanceFromNow } from '../../utils/helpers';
-import { useCheckout } from 'features/check-in-out/useCheckout';
+import { useCheckout } from '../check-in-out/hooks/useCheckout';
 import styles from './Booking.module.css';
 
 function BookingRow({
@@ -30,13 +30,13 @@ function BookingRow({
     numGuests,
     totalPrice,
     status,
-    guests: { fullName: guestName, email },
-    cabins: { name: cabinName },
+    email,
+    fullName: guestName,
+    name: cabinName,
   },
 }) {
   const { mutate: deleteBooking, isLoading: isDeleting } = useDeleteBooking();
   const { mutate: checkout, isLoading: isCheckingOut } = useCheckout();
-
   const navigate = useNavigate();
 
   // We will not allow editing at this point, as it's too complex for bookings... People just need to delete a booking and create a new one
