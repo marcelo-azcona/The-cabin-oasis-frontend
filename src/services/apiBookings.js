@@ -1,10 +1,10 @@
 import { getToday } from '../utils/helpers';
 
-const CABIN_URL = 'http://localhost:8080/api';
+const BOOKING_URL = 'http://localhost:8080/api';
 
 export async function getAllBookings() {
   try {
-    const response = await fetch(`${CABIN_URL}/bookings`, {
+    const response = await fetch(`${BOOKING_URL}/bookings`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
